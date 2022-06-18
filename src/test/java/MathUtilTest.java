@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 //import static  pacote.MathUtil.*;
 
 class MathUtilTest {
@@ -118,5 +117,14 @@ class MathUtilTest {
         final double obtido = MathUtil.mdc(12,8,4);
         assertEquals(esperado, obtido);
         //MathUtil.mdc(valores);
+    }
+    @Test
+    void testMdcNenhumParametro(){
+        assertThrows(IllegalArgumentException.class, () -> MathUtil.mdc());
+    }
+
+    @Test
+    void MdcNulo(){
+        assertThrows(NullPointerException.class, () -> MathUtil.mdc(null));
     }
 }
